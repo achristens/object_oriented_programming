@@ -20,3 +20,6 @@ end
 
 thor = Cat.new("Thor", "Fish", 12)
 sweet_potato = Cat.new("Sweet Potato", "Carrots", 16)
+
+puts thor.meow
+puts sweet_potato.meow
