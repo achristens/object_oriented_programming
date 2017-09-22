@@ -6,6 +6,5 @@ class Cat
   end
 end
 
-squish = Cat.new("Squish", "Fish", 12)
-
-puts squish
+thor = Cat.new("Thor", "Fish", 12)
+sweet_potato = Cat.new("Sweet Potato", "Carrots", 16)
