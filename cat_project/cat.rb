@@ -12,6 +12,10 @@ class Cat
       "#{@meal_time} PM"
     end
   end
+
+  def meow
+    "Meoooowwwrrrrr... my name is #{@name}, and I prefer to eat my #{@preferred_food} at #{eats_at}."
+  end
 end
 
 thor = Cat.new("Thor", "Fish", 12)
