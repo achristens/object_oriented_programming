@@ -20,14 +20,22 @@ class Player
     end
   end
 
+  def restart
+    @gold_coins = 0
+    @health_points = 10
+    @lives = 5
+    "You're out! Don't worry, I reset your player. Current status:\n 1.#{@gold_coins} gold coins\n2.#{@health_points} health_points\n3.#{@lives} lives"
+  end
+
   # START DAMAGE BLOCK
   def do_battle(damage)
     @health_points = @health_points - damage
     if @health_points < 1
       @lives -= 1
       @health_points = 10
-      "You lost of life. Here's your health update: Health: #{@health_points}, Lives: #{@lives}"
-      # if @lives == 0
+      "You lost a life :( Here's your health update: Health: #{@health_points}, Lives: #{@lives}"
+    elsif @lives == 0
+        restart
     else
       "Your health is at #{@health_points} points."
     end
@@ -37,4 +45,4 @@ class Player
 end
 
 abby = Player.new
-puts abby.collect_treasure
+puts abby.do_battle()
