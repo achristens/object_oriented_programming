@@ -24,18 +24,18 @@ class Player
     @gold_coins = 0
     @health_points = 10
     @lives = 5
-    "You're out! Don't worry, I reset your player. Current status:\n 1.#{@gold_coins} gold coins\n2.#{@health_points} health_points\n3.#{@lives} lives"
+    "You're out! Don't worry, I reset your player. Current status:\n1.#{@gold_coins} gold coins\n2.#{@health_points} health_points\n3.#{@lives} lives"
   end
 
   # START DAMAGE BLOCK
   def do_battle(damage)
     @health_points = @health_points - damage
-    if @health_points < 1
+    if @lives <= 0
+      restart
+    elsif @health_points < 1
       @lives -= 1
       @health_points = 10
       "You lost a life :( Here's your health update: Health: #{@health_points}, Lives: #{@lives}"
-    elsif @lives == 0
-        restart
     else
       "Your health is at #{@health_points} points."
     end
