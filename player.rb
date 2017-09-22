@@ -1,8 +1,8 @@
 class Player
   def initialize
-    @gold_coins = 0
-    @health_points = 10
-    @lives = 5
+    @gold_coins     = 0
+    @health_points  = 10
+    @lives          = 5
   end
 
   def level_up
@@ -21,9 +21,9 @@ class Player
   end
 
   def restart
-    @gold_coins = 0
-    @health_points = 10
-    @lives = 5
+    @gold_coins     = 0
+    @health_points  = 10
+    @lives          = 5
     "You're out! Don't worry, I reset your player. Current status:\n1.#{@gold_coins} gold coins\n2.#{@health_points} health_points\n3.#{@lives} lives"
   end
 
@@ -41,7 +41,6 @@ class Player
     end
   end
   # END DAMAGE BLOCK
-
 end
 
 abby = Player.new
