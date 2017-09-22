@@ -1,6 +1,6 @@
 class Player
   def initialize
-    @gold_coins = 9
+    @gold_coins = 0
     @health_points = 10
     @lives = 5
   end
@@ -20,10 +20,20 @@ class Player
     end
   end
 
+  # START DAMAGE BLOCK
   def do_battle(damage)
     @health_points = @health_points - damage
-    "Your health level is at #{@health_points} points."
+    if @health_points < 1
+      @lives -= 1
+      @health_points = 10
+      "You lost of life. Here's your health update: Health: #{@health_points}, Lives: #{@lives}"
+      # if @lives == 0
+    else
+      "Your health is at #{@health_points} points."
+    end
   end
+  # END DAMAGE BLOCK
+
 end
 
 abby = Player.new
