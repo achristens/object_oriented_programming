@@ -1,8 +1,9 @@
+require 'pry'
 class Paperboy
   def initialize(name)
     @name       = name
-    @experience = 0
-    @earnings   = 0
+    @experience = 0.0
+    @earnings   = 0.0
   end
 
   def name
@@ -25,23 +26,22 @@ class Paperboy
     total_addresses = (end_address - start_address).abs
     if total_addresses == quota
       quota_papers = quota * 0.25
-      quota_papers = quota_papers.to_f
       days_total = quota_papers
       @earnings += days_total
 
     elsif total_addresses > quota
       quota_papers = quota * 0.25
-      quota_papers = quota_papers.to_f
       bonus_papers = (total_addresses - quota) * 0.5
-      bonus_papers = bonus_papers.to_f
       days_total = quota_papers + bonus_papers
       @earnings += days_total
 
     else
-      @earnings -= 2
+      quota_papers = quota * 0.25
+      @earnings += quota_papers - 2
     end
     @experience += total_addresses
     @earnings
+    binding.pry
   end
 
   def report
@@ -50,3 +50,10 @@ class Paperboy
 end
 
 ari = Paperboy.new("Ari")
+puts ari.deliver(50,100)
+puts ari.report
+puts ari.inspect
+
+puts ari.deliver(50,100)
+puts ari.report
+puts ari.inspect

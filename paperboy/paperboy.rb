@@ -36,7 +36,6 @@ class Paperboy
     money_made   = 0
 
     if total_papers == quota
-      # @experience += total_papers
       money_made = quota_income
 
     elsif total_papers > quota
@@ -44,9 +43,10 @@ class Paperboy
       money_made = quota_income + over_quota
 
     elsif total_papers < quota
-      money_made = (quota_income - 2).to_f
-      
+      papers_income = total_papers * 0.25
+      money_made = (papers_income - 2).to_f
     end
+
     @experience += total_papers
     @earnings += money_made
     money_made
